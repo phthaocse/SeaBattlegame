@@ -8,21 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace testSB
+namespace SeaBattle
 {
-    public partial class Form1 : Form
+    public partial class SeaBattle : Form
     {
-        public Form1()
+        #region Propeties
+        BoardManager Board;
+        #endregion
+        public SeaBattle()
         {
             InitializeComponent();
-            DrawBoard();
+            Board = new BoardManager(pnlBroad1,pnlBoard2);
+            Board.DrawBoard();
         }
-        void DrawBoard()
-        {
-            Button btn = new Button();
-            pnlBroad1.Controls.Add(btn);
-        }
-
+        
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

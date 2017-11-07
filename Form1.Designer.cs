@@ -1,6 +1,6 @@
-﻿namespace testSB
+﻿namespace SeaBattle
 {
-    partial class Form1
+    partial class SeaBattle
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             this.textBox2.Size = new System.Drawing.Size(201, 20);
             this.textBox2.TabIndex = 5;
             // 
-            // Form1
+            // SeaBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,7 +92,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlBoard2);
             this.Controls.Add(this.pnlBroad1);
-            this.Name = "Form1";
+            this.Name = "SeaBattle";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
