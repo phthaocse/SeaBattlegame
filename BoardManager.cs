@@ -38,42 +38,41 @@ namespace SeaBattle
         public void DrawBoard()
         {
             Button oldbtn = new Button() { Width = 0, Location = new Point(0, 0) };// khoi tao diem bat dau
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Contents.board_height; i++)
             {
-                for (int j = 0; j < 11; j++)
+                for (int j = 0; j < Contents.board_width; j++)
                 {
                     Button btn = new Button()
                     {
                         Width = Contents.square_width,
                         Height = Contents.square_height,
-                        // location la toa do cua 1 diem, thay doi toa do diem sau bang toa do trc cong width
-                        Location = new Point(oldbtn.Location.X + oldbtn.Width, oldbtn.Location.Y)
+                        Location = new Point(j*Contents.square_width, oldbtn.Location.Y)//sau moi lan thi toa do cua button tren 1 hang bi doi qua 1 do rong tuong ung 
                     }; // khoi tao mot button voi kich thuoc da quy dinh
                     Board1.Controls.Add(btn);
-                    oldbtn = btn;
+                    
                 }
                 //gan lai vi tri old button khi xuong dong
                 oldbtn.Location = new Point(0, oldbtn.Location.Y + Contents.square_height);
                 oldbtn.Width = 0;
                 oldbtn.Height = 0;
+
             }
             //ve board2
             oldbtn.Location = new Point(0, 0);
             oldbtn.Width = 0;
             oldbtn.Height = 0;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Contents.board_height; i++)
             {
-                for (int j = 0; j < 11; j++)
-                {
-                    Button btn = new Button()
+                for (int j = 0; j < Contents.board_width; j++)
+                { 
+                    Button btn = new Button() 
                     {
                         Width = Contents.square_width,
                         Height = Contents.square_height,
-                        // location la toa do cua 1 diem, thay doi toa do diem sau bang toa do trc cong width
-                        Location = new Point(oldbtn.Location.X + oldbtn.Width, oldbtn.Location.Y)
+                        Location = new Point(j * Contents.square_width, oldbtn.Location.Y)
                     }; // khoi tao mot button voi kich thuoc da quy dinh
                     Board2.Controls.Add(btn);
-                    oldbtn = btn;
+                   
                 }
                 //gan lai vi tri old button khi xuong dong
                 oldbtn.Location = new Point(0, oldbtn.Location.Y + Contents.square_height);
