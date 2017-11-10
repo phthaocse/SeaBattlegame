@@ -13,13 +13,24 @@ namespace SeaBattle
     public partial class SeaBattle : Form
     {
         #region Propeties
-        BoardManager Board;
+        BoardManager Board1;
+        BoardManager Board2;
+        Drawbar bar1;
+        Drawbar bar2;
         #endregion
         public SeaBattle()
         {
             InitializeComponent();
-            Board = new BoardManager(pnlBroad1,pnlBoard2);
-            Board.DrawBoard();
+            Board1 = new BoardManager(pnlBroad1);
+            Board1.DrawBoard();
+            Board2 = new BoardManager(pnlBoard2);
+            Board2.DrawBoard();
+            bar1 = new Drawbar(crossbar1, jamb1);
+            bar2 = new Drawbar(crossbar2, jamb2);
+            bar1.DrawCrossbar();
+            bar1.DrawJamp();
+            bar2.DrawCrossbar();
+            bar2.DrawJamp();
         }
         
         private void panel1_Paint(object sender, PaintEventArgs e)
