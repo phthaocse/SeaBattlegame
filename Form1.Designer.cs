@@ -1,4 +1,6 @@
-﻿namespace SeaBattle
+﻿using System;
+
+namespace SeaBattle
 {
     partial class SeaBattle
     {
@@ -30,11 +32,27 @@
         {
             this.pnlBroad1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxship = new System.Windows.Forms.TextBox();
+            this.tbxbullet = new System.Windows.Forms.TextBox();
+            this.tbxScore = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSet = new System.Windows.Forms.Button();
+            this.tbx2 = new System.Windows.Forms.TextBox();
+            this.tby2 = new System.Windows.Forms.TextBox();
+            this.tby1 = new System.Windows.Forms.TextBox();
+            this.tbx1 = new System.Windows.Forms.TextBox();
+            this.btnLC = new System.Windows.Forms.Button();
+            this.btnDestroyer = new System.Windows.Forms.Button();
+            this.btnAC = new System.Windows.Forms.Button();
+            this.btnCruiser = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.crossbar1 = new System.Windows.Forms.Panel();
@@ -44,6 +62,8 @@
             this.jamb2 = new System.Windows.Forms.Panel();
             this.jamb1 = new System.Windows.Forms.Panel();
             this.pnlBoard2 = new System.Windows.Forms.Panel();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.crossbar1.SuspendLayout();
@@ -61,10 +81,104 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.tbxship);
+            this.panel3.Controls.Add(this.tbxbullet);
+            this.panel3.Controls.Add(this.tbxScore);
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.tbxName);
             this.panel3.Location = new System.Drawing.Point(727, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 171);
+            this.panel3.Size = new System.Drawing.Size(270, 151);
             this.panel3.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 18);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Name";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(153, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Ship";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(3, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Bullets";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(3, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Score ";
+            // 
+            // tbxship
+            // 
+            this.tbxship.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tbxship.Location = new System.Drawing.Point(201, 118);
+            this.tbxship.Name = "tbxship";
+            this.tbxship.ReadOnly = true;
+            this.tbxship.Size = new System.Drawing.Size(40, 30);
+            this.tbxship.TabIndex = 5;
+            // 
+            // tbxbullet
+            // 
+            this.tbxbullet.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tbxbullet.Location = new System.Drawing.Point(67, 118);
+            this.tbxbullet.Name = "tbxbullet";
+            this.tbxbullet.ReadOnly = true;
+            this.tbxbullet.Size = new System.Drawing.Size(40, 30);
+            this.tbxbullet.TabIndex = 4;
+            // 
+            // tbxScore
+            // 
+            this.tbxScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tbxScore.Location = new System.Drawing.Point(67, 71);
+            this.tbxScore.Name = "tbxScore";
+            this.tbxScore.ReadOnly = true;
+            this.tbxScore.Size = new System.Drawing.Size(73, 30);
+            this.tbxScore.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(157, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 111);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tbxName
+            // 
+            this.tbxName.Location = new System.Drawing.Point(3, 25);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.ReadOnly = true;
+            this.tbxName.Size = new System.Drawing.Size(148, 20);
+            this.tbxName.TabIndex = 1;
             // 
             // panel4
             // 
@@ -83,26 +197,98 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(728, 201);
+            this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.btnSet);
+            this.panel1.Controls.Add(this.tbx2);
+            this.panel1.Controls.Add(this.tby2);
+            this.panel1.Controls.Add(this.tby1);
+            this.panel1.Controls.Add(this.tbx1);
+            this.panel1.Controls.Add(this.btnLC);
+            this.panel1.Controls.Add(this.btnDestroyer);
+            this.panel1.Controls.Add(this.btnAC);
+            this.panel1.Controls.Add(this.btnCruiser);
+            this.panel1.Location = new System.Drawing.Point(727, 169);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 176);
+            this.panel1.Size = new System.Drawing.Size(270, 282);
             this.panel1.TabIndex = 4;
             // 
-            // textBox2
+            // btnSet
             // 
-            this.textBox2.Location = new System.Drawing.Point(4, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 20);
-            this.textBox2.TabIndex = 1;
+            this.btnSet.Location = new System.Drawing.Point(45, 234);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(196, 24);
+            this.btnSet.TabIndex = 16;
+            this.btnSet.Text = "Set";
+            this.btnSet.UseVisualStyleBackColor = true;
+            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
-            // textBox1
+            // tbx2
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbx2.Location = new System.Drawing.Point(36, 204);
+            this.tbx2.Name = "tbx2";
+            this.tbx2.Size = new System.Drawing.Size(80, 20);
+            this.tbx2.TabIndex = 15;
+            // 
+            // tby2
+            // 
+            this.tby2.Location = new System.Drawing.Point(171, 204);
+            this.tby2.Name = "tby2";
+            this.tby2.Size = new System.Drawing.Size(80, 20);
+            this.tby2.TabIndex = 14;
+            // 
+            // tby1
+            // 
+            this.tby1.Location = new System.Drawing.Point(171, 171);
+            this.tby1.Name = "tby1";
+            this.tby1.Size = new System.Drawing.Size(80, 20);
+            this.tby1.TabIndex = 13;
+            // 
+            // tbx1
+            // 
+            this.tbx1.Location = new System.Drawing.Point(36, 171);
+            this.tbx1.Name = "tbx1";
+            this.tbx1.Size = new System.Drawing.Size(80, 20);
+            this.tbx1.TabIndex = 12;
+            // 
+            // btnLC
+            // 
+            this.btnLC.Location = new System.Drawing.Point(67, 124);
+            this.btnLC.Name = "btnLC";
+            this.btnLC.Size = new System.Drawing.Size(150, 30);
+            this.btnLC.TabIndex = 11;
+            this.btnLC.Text = "Tàu Đổ Bộ";
+            this.btnLC.UseVisualStyleBackColor = true;
+            this.btnLC.Click += new System.EventHandler(this.btnLC_Click);
+            // 
+            // btnDestroyer
+            // 
+            this.btnDestroyer.Location = new System.Drawing.Point(67, 52);
+            this.btnDestroyer.Name = "btnDestroyer";
+            this.btnDestroyer.Size = new System.Drawing.Size(150, 30);
+            this.btnDestroyer.TabIndex = 4;
+            this.btnDestroyer.Text = "Tàu Khu Trục";
+            this.btnDestroyer.UseVisualStyleBackColor = true;
+            this.btnDestroyer.Click += new System.EventHandler(this.btnDestroyer_Click);
+            // 
+            // btnAC
+            // 
+            this.btnAC.Location = new System.Drawing.Point(67, 16);
+            this.btnAC.Name = "btnAC";
+            this.btnAC.Size = new System.Drawing.Size(150, 30);
+            this.btnAC.TabIndex = 2;
+            this.btnAC.Text = "Tàu Sân Bay";
+            this.btnAC.UseVisualStyleBackColor = true;
+            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
+            // 
+            // btnCruiser
+            // 
+            this.btnCruiser.Location = new System.Drawing.Point(68, 88);
+            this.btnCruiser.Name = "btnCruiser";
+            this.btnCruiser.Size = new System.Drawing.Size(150, 30);
+            this.btnCruiser.TabIndex = 3;
+            this.btnCruiser.Text = "Tàu Tuần Dương";
+            this.btnCruiser.UseVisualStyleBackColor = true;
+            this.btnCruiser.Click += new System.EventHandler(this.bntCruiser_Click);
             // 
             // label1
             // 
@@ -182,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 463);
+            this.ClientSize = new System.Drawing.Size(1001, 463);
             this.Controls.Add(this.jamb1);
             this.Controls.Add(this.jamb2);
             this.Controls.Add(this.crossbar2);
@@ -195,8 +381,11 @@
             this.Controls.Add(this.pnlBoard2);
             this.Controls.Add(this.pnlBroad1);
             this.Name = "SeaBattle";
-            this.Text = "SeaBattle Game";
+            this.Text = "Set";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -207,14 +396,33 @@
 
         }
 
+        private void bntCruiser_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnDestroyer_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnLC_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         #endregion
 
         private System.Windows.Forms.Panel pnlBroad1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -225,6 +433,23 @@
         private System.Windows.Forms.Panel jamb2;
         private System.Windows.Forms.Panel jamb1;
         private System.Windows.Forms.Panel pnlBoard2;
+        private System.Windows.Forms.Button btnDestroyer;
+        private System.Windows.Forms.Button btnAC;
+        private System.Windows.Forms.Button btnCruiser;
+        private System.Windows.Forms.Button btnLC;
+        private System.Windows.Forms.Button btnSet;
+        private System.Windows.Forms.TextBox tbx2;
+        private System.Windows.Forms.TextBox tby2;
+        private System.Windows.Forms.TextBox tby1;
+        private System.Windows.Forms.TextBox tbx1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbxScore;
+        private System.Windows.Forms.TextBox tbxship;
+        private System.Windows.Forms.TextBox tbxbullet;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
     }
 }
 
