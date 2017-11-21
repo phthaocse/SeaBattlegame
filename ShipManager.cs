@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SeaBattle
 {
-    public enum shiptype { AC = 4, Destroyer = 2, Cruiser = 1, LC = 0};
+    public enum shiptype { AC = 4, Destroyer = 2, Cruiser = 1, LC = 0 };
     class ShipManager
     {
         #region Propeties
@@ -162,12 +162,12 @@ namespace SeaBattle
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            SoLuongTau += 1; 
+            SoLuongTau += 1;
             //kiem tra so tau nhap hop le
             if (Type == shiptype.AC && SoLuongTau > 1)//tau san bay chi duoc 1 tau
             {
                 Set.Enabled = false;
-                MessageBox.Show("Đã chọn đủ không được chọn thêm loại tàu này nữa","Error");
+                MessageBox.Show("Đã chọn đủ không được chọn thêm loại tàu này nữa", "Error");
             }
             if (Type == shiptype.Destroyer && SoLuongTau > 2)// tau khu truc chi co 2 tau
             {
@@ -198,11 +198,136 @@ namespace SeaBattle
             }
         }
 
+        public bool TestArea(int y1, int x1, int y2, int x2)
+        {
+            bool testUP = true, testBOTTOM = true, testRIGHT = true, testLEFT = true;
+            if (y1 == 1)
+            {
+                if (x1 == 1)
+                {
+                    testBOTTOM = testDuoi(y1, x1, y2, x2);
+                    testRIGHT = testPhai(y1, x1, y2, x2);
+                }
+                else if (x2 == Contents.board_width)
+                {
+                    testBOTTOM = testDuoi(y1, x1, y2, x2);
+                    testLEFT = testTrai(y1, x1, y2, x2);
+                }
+                else
+                {
+                    testBOTTOM = testDuoi(y1, x1, y2, x2);
+                    testRIGHT = testPhai(y1, x1, y2, x2);
+                    testLEFT = testTrai(y1, x1, y2, x2);
+                }
+            }
+
+            else if (y1 == Contents.board_height)
+            {
+                if (x1 == 1)
+                {
+                    testUP = testTren(y1, x1, y2, x2);
+                    testRIGHT = testPhai(y1, x1, y2, x2);
+                }
+                else if (x2 == Contents.board_width)
+                {
+                    testUP = testTren(y1, x1, y2, x2);
+                    testLEFT = testTrai(y1, x1, y2, x2);
+                }
+                else
+                {
+                    testUP = testTren(y1, x1, y2, x2);
+                    testLEFT = testTrai(y1, x1, y2, x2);
+                    testRIGHT = testPhai(y1, x1, y2, x2);
+                }
+            }
+
+            else if (x1 == 1)
+            {
+                testUP = testTren(y1, x1, y2, x2);
+                testRIGHT = testPhai(y1, x1, y2, x2);
+                testBOTTOM = testDuoi(y1, x1, y2, x2);
+            }
+
+            else if (x2 == Contents.board_width)
+            {
+                testUP = testTren(y1, x1, y2, x2);
+                testLEFT = testTrai(y1, x1, y2, x2);
+                testBOTTOM = testDuoi(y1, x1, y2, x2);
+            }
+
+            else
+            {
+                testUP = testTren(y1, x1, y2, x2);
+                testLEFT = testTrai(y1, x1, y2, x2);
+                testBOTTOM = testDuoi(y1, x1, y2, x2);
+                testRIGHT = testPhai(y1, x1, y2, x2);
+            }
+            return (testBOTTOM && testUP && testRIGHT && testLEFT);
+        }
+
+
+        public bool testTren(int y1, int x1, int y2, int x2)
+        {
+            bool test = true;
+            for (int i = x1 - 1; i <= x2 + 1; i++)
+            {
+                if (Matrix[y1 - 2][i - 1].BackgroundImage != null)
+                {
+                    test = false;
+                    break;
+                }
+            }
+
+            return test;
+        }
+
+
+
+        public bool testDuoi(int y1, int x1, int y2, int x2)
+        {
+            bool test = true;
+            for (int i = x1 - 1; i <= x2 + 1; i++)
+            {
+                if (Matrix[y1][i - 1].BackgroundImage != null)
+                {
+                    test = false;
+                    break;
+                }
+            }
+            return test;
+        }
+
+        public bool testTrai(int y1, int x1, int y2, int x2)
+        {
+            bool test = true;
+            for (int i = y1; i <= y2; i++)
+            {
+                if (Matrix[i - 1][x1 - 2].BackgroundImage != null)
+                {
+                    test = false;
+                }
+            }
+            return test;
+        }
+
+        public bool testPhai(int y1, int x1, int y2, int x2)
+        {
+            bool test = true;
+            for (int i = y1; i <= y2; i++)
+            {
+                if (Matrix[i - 1][x1].BackgroundImage != null)
+                {
+                    test = false;
+                }
+            }
+            return test;
+        }
+
         private void Set_Click(object sender, EventArgs e)
         {
             int x, y, a, b;
             string str = System.String.Empty;
-            Color color = Color.White ;
+            Color color = Color.White;
             if (Type == shiptype.AC)
             {
                 color = Color.Red;
@@ -230,11 +355,18 @@ namespace SeaBattle
                     if ((b - y) == Convert.ToInt32(Type))
                     {
                         //btpush.Enabled = true;
-                        for (int i = y; i <= b; i++)
+                        if (TestArea(x, y, a, b))
                         {
-                            Matrix[x - 1][i - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
+                            for (int i = y; i <= b; i++)
+                            {
+                                Matrix[x - 1][i - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
 
-                            Matrix[x - 1][i - 1].BackColor = color;
+                                Matrix[x - 1][i - 1].BackColor = color;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn hãy chọn lại", "Thông báo");
                         }
                     }
                     else
@@ -247,10 +379,17 @@ namespace SeaBattle
                 {
                     if ((a - x) == Convert.ToInt32(Type))
                     {
-                        for (int i = x; i <= a; i++)
+                        if (TestArea(x, y, a, b))
                         {
-                            Matrix[i - 1][y - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
-                            Matrix[i - 1][y - 1].BackColor = color;
+                            for (int i = x; i <= a; i++)
+                            {
+                                Matrix[i - 1][y - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
+                                Matrix[i - 1][y - 1].BackColor = color;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn hãy chọn lại", "Thông báo");
                         }
                     }
                     else
@@ -260,8 +399,15 @@ namespace SeaBattle
                 }
                 else if (x == a && y == b)
                 {
-                    Matrix[x - 1][y - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
-                    Matrix[x - 1][y - 1].BackColor = color;
+                    if (TestArea(x, y, a, b))
+                    {
+                        Matrix[x - 1][y - 1].BackgroundImage = Image.FromFile(Application.StartupPath + str);
+                        Matrix[x - 1][y - 1].BackColor = color;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn hãy chọn lại", "Thông báo");
+                    }
                 }
                 else
                 {
@@ -295,7 +441,7 @@ namespace SeaBattle
         }
 
 
-    
-    #endregion
+
+        #endregion
     }
 }

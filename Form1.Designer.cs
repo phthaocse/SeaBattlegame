@@ -41,8 +41,6 @@ namespace SeaBattle
             this.tbxScore = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSet = new System.Windows.Forms.Button();
             this.tbx2 = new System.Windows.Forms.TextBox();
@@ -62,12 +60,19 @@ namespace SeaBattle
             this.jamb2 = new System.Windows.Forms.Panel();
             this.jamb1 = new System.Windows.Forms.Panel();
             this.pnlBoard2 = new System.Windows.Forms.Panel();
+            this.btnLAN = new System.Windows.Forms.Button();
+            this.txbIP = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSTART = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.crossbar1.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBroad1
@@ -77,7 +82,6 @@ namespace SeaBattle
             this.pnlBroad1.Name = "pnlBroad1";
             this.pnlBroad1.Size = new System.Drawing.Size(300, 300);
             this.pnlBroad1.TabIndex = 0;
-            this.pnlBroad1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
@@ -91,10 +95,11 @@ namespace SeaBattle
             this.panel3.Controls.Add(this.tbxScore);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.tbxName);
-            this.panel3.Location = new System.Drawing.Point(727, 12);
+            this.panel3.Location = new System.Drawing.Point(727, 30);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 151);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label6
             // 
@@ -180,21 +185,6 @@ namespace SeaBattle
             this.tbxName.Size = new System.Drawing.Size(148, 20);
             this.tbxName.TabIndex = 1;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(3, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(688, 35);
-            this.panel4.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(1, 41);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(298, 40);
-            this.panel2.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
@@ -207,7 +197,7 @@ namespace SeaBattle
             this.panel1.Controls.Add(this.btnDestroyer);
             this.panel1.Controls.Add(this.btnAC);
             this.panel1.Controls.Add(this.btnCruiser);
-            this.panel1.Location = new System.Drawing.Point(727, 169);
+            this.panel1.Location = new System.Drawing.Point(727, 187);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 282);
             this.panel1.TabIndex = 4;
@@ -220,7 +210,6 @@ namespace SeaBattle
             this.btnSet.TabIndex = 16;
             this.btnSet.Text = "Set";
             this.btnSet.UseVisualStyleBackColor = true;
-            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
             // tbx2
             // 
@@ -326,7 +315,6 @@ namespace SeaBattle
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(300, 300);
             this.panel10.TabIndex = 0;
-            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel11
             // 
@@ -364,11 +352,73 @@ namespace SeaBattle
             this.pnlBoard2.Size = new System.Drawing.Size(300, 300);
             this.pnlBoard2.TabIndex = 1;
             // 
+            // btnLAN
+            // 
+            this.btnLAN.Location = new System.Drawing.Point(898, 490);
+            this.btnLAN.Name = "btnLAN";
+            this.btnLAN.Size = new System.Drawing.Size(75, 23);
+            this.btnLAN.TabIndex = 11;
+            this.btnLAN.Text = "LAN";
+            this.btnLAN.UseVisualStyleBackColor = true;
+            this.btnLAN.Click += new System.EventHandler(this.btnLAN_Click);
+            // 
+            // txbIP
+            // 
+            this.txbIP.Location = new System.Drawing.Point(743, 490);
+            this.txbIP.Name = "txbIP";
+            this.txbIP.Size = new System.Drawing.Size(100, 20);
+            this.txbIP.TabIndex = 12;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1001, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.quitToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
+            // btnSTART
+            // 
+            this.btnSTART.Location = new System.Drawing.Point(555, 471);
+            this.btnSTART.Name = "btnSTART";
+            this.btnSTART.Size = new System.Drawing.Size(75, 23);
+            this.btnSTART.TabIndex = 14;
+            this.btnSTART.Text = "START";
+            this.btnSTART.UseVisualStyleBackColor = true;
+            // 
             // SeaBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 463);
+            this.ClientSize = new System.Drawing.Size(1001, 525);
+            this.Controls.Add(this.btnSTART);
+            this.Controls.Add(this.txbIP);
+            this.Controls.Add(this.btnLAN);
             this.Controls.Add(this.jamb1);
             this.Controls.Add(this.jamb2);
             this.Controls.Add(this.crossbar2);
@@ -376,21 +426,25 @@ namespace SeaBattle
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlBoard2);
             this.Controls.Add(this.pnlBroad1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "SeaBattle";
             this.Text = "Set";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SeaBattle_FormClosing);
+            this.Load += new System.EventHandler(this.SeaBattle_Load);
+            this.Shown += new System.EventHandler(this.SeaBattle_Shown);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.crossbar1.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,12 +474,10 @@ namespace SeaBattle
 
         private System.Windows.Forms.Panel pnlBroad1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel crossbar1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
@@ -450,6 +502,13 @@ namespace SeaBattle
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnLAN;
+        private System.Windows.Forms.TextBox txbIP;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.Button btnSTART;
     }
 }
 

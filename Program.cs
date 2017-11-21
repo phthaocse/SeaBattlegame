@@ -16,7 +16,7 @@ namespace SeaBattle
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SeaBattle());
+            Application.Run(new ScreenGame());
         }
     }
 }
